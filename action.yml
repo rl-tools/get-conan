@@ -18,15 +18,15 @@ runs:
       with:
         python-version: "3.11.6"
     - name: Install setup tools
-      run: pip3 install --user wheel setuptools
+      run: pip3 install wheel setuptools
       shell: bash
     - name: Install conan latest
       if: ${{ inputs.version == '' }}
-      run: pip3 install --user conan --upgrade
+      run: pip3 install conan --upgrade
       shell: bash
     - name: Install conan version ${{ inputs.version }}
       if: ${{ inputs.version != '' }}
-      run: pip3 install --user conan==${{ inputs.version }} --upgrade
+      run: pip3 install conan==${{ inputs.version }} --upgrade
       shell: bash
     - name: Fix path on Linux
       run: |
