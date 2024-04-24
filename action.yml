@@ -14,15 +14,15 @@ runs:
   using: "composite"
   steps:
     - name: Install setup tools
-      run: pip3 install wheel setuptools
+      run: pip3 install --user wheel setuptools
       shell: bash
     - name: Install conan latest
       if: ${{ inputs.version == '' }}
-      run: pip3 install conan --upgrade
+      run: pip3 install --user conan --upgrade
       shell: bash
     - name: Install conan version ${{ inputs.version }}
       if: ${{ inputs.version != '' }}
-      run: pip3 install conan==${{ inputs.version }} --upgrade
+      run: pip3 install --user conan==${{ inputs.version }} --upgrade
       shell: bash
     - name: Fix path on Linux
       run: |
